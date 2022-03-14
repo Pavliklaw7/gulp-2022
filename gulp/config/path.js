@@ -7,13 +7,20 @@ const rootFolder = nodePath.basename(nodePath.resolve())
 const buildFolder = './dist'
 const srcFolder = './src'
 
-const path = {
-  build: {}, // result folder path
+export const path = {
+  build: {
+    html: `${buildFolder}/`,
+    files: `${buildFolder}/files/`,
+  }, // result folder path
   src: {
-    files: ``
+    html: `${srcFolder}/*.html`,
+    files: `${srcFolder}/files/**/*.*`,
   }, // source folder path
-  watch: {},
-  cleanFolder: buildFolder,
+  watch: {
+    html: `${buildFolder}/**/*.html`,
+    files: `${srcFolder}/files/**/*.*`,
+  },
+  clean: buildFolder,
   buidFolder: buildFolder,
   srcFolder: srcFolder,
   rootFolder: rootFolder,
